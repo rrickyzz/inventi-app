@@ -68,7 +68,7 @@ ThemeData appTheme = ThemeData(
           states.contains(MaterialState.hovered)) {
         return AppColors.primary;
       }
-      return Colors.grey;
+    return Colors.grey;
     }),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(

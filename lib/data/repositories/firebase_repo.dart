@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:inventi/data/models/location_model.dart';
 import 'package:inventi/data/models/user_model.dart';
 import 'package:inventi/data/services/firebase_auth.dart';
+import 'package:inventi/data/services/firebase_realtime_service.dart';
 import 'package:inventi/data/services/firestore_service.dart';
 
 class AuthRepository {
@@ -38,6 +40,9 @@ class AuthRepository {
   Future<void> signOut() async {
     await _authService.logout();
   }
+
+  Stream<List<LocationModel>> get streamLocations =>
+      FirebaseRealtimeDatabaseService().listenToLocations();
 
   User? get currentUser => _authService.currentUser;
 }
